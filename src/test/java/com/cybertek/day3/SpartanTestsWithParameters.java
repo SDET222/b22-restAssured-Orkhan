@@ -1,26 +1,21 @@
 package com.cybertek.day3;
 
+import com.cybertek.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SpartanTestsWithParameters {
+public class SpartanTestsWithParameters extends SpartanTestBase {
 
-    @BeforeAll
-    public static void init() {
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://52.207.61.129:8000";
-    }
+
 
     @DisplayName("Get request to api/spartans/{id} with ID 5")
     @Test

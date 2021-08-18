@@ -1,9 +1,7 @@
 package com.cybertek.day3;
 
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -12,10 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ORDS_API_TestWithParameters {
 
-    @BeforeAll
-    public static void init() {
-        RestAssured.baseURI = "http://3.86.27.247:1000/ords/hr";
-    }
+
 
     /*
             Given accept type is Json

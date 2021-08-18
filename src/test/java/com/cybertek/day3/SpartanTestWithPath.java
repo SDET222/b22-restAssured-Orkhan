@@ -1,21 +1,19 @@
 package com.cybertek.day3;
 
+import com.cybertek.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
+import java.util.List;
+
+import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SpartanTestWithPath {
+public class SpartanTestWithPath extends SpartanTestBase {
 
-    @BeforeAll
-    public static void init() {
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://52.207.61.129:8000";
-    }
+
     /*
          Given accept type is json
          And path param id is 10
@@ -55,14 +53,29 @@ public class SpartanTestWithPath {
         assertEquals(3312820936l,phone);
 
 
+    }
 
+    @DisplayName("GET all spartan and navigate Path()")
+    @Test
+    public void test2() {
 
+        Response response = given().accept(ContentType.JSON)
+                .when().get("/api/spartans");
 
+        int firstId = response.path("id[0]");
+        System.out.println("firstId = " + firstId);
 
+        String name = response.path("name[-1]");
+        System.out.println("last...name = " + name);
+
+        List<String> names = response.path("name");
+
+        for (String s : names) {
+            System.out.println(s);
+        }
 
 
     }
-
 
 
 
