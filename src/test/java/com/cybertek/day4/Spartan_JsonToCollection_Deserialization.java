@@ -9,7 +9,7 @@ import java.util.*;
 
 import static io.restassured.RestAssured.*;
 
-public class Spartan_JsonToCollection extends SpartanTestBase {
+public class Spartan_JsonToCollection_Deserialization extends SpartanTestBase {
 
 
     @Test
