@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class SpartanGetRequests {
 
+
     String url = "http://3.86.27.247:8000";
 
     @Test
@@ -62,6 +63,10 @@ public class SpartanGetRequests {
 
         Assertions.assertEquals("Hello from Sparta",response.body().asString());
 
+
+    }
+    @Test
+    public void test4(){
 
     }
 
