@@ -77,5 +77,6 @@ public class CBTrainingApiWithJsonPath {
         assertEquals(60606, zipCode);
 
 
+
     }
 }
