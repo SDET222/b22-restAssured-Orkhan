@@ -5,33 +5,36 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Spartan_JsonToPOJO_Deserialization extends SpartanTestBase {
     @Test
     public void test2() {
         Response response = given().accept(ContentType.JSON)
-                .pathParam("id",15)
+                .pathParam("id", 15)
                 .when().get("/api/spartans/{id}");
 
         response.prettyPrint();
 
-Spartan spartan1 = response.body().as(Spartan.class);
+        Spartan spartan1 = response.body().as(Spartan.class);
+
+
         System.out.println(spartan1.toString());
-        assertEquals(spartan1.getName(),"Meta");
-        assertEquals(spartan1.getId(),15);
-        assertEquals(spartan1.getGender(),"Female");
-        assertEquals(spartan1.getPhone(),1938695106);
+        assertEquals(spartan1.getName(), "Meta");
+        assertEquals(spartan1.getId(), 15);
+        assertEquals(spartan1.getGender(), "Female");
+        assertEquals(spartan1.getPhone(), 1938695106);
 
     }
+
     public class Spartan {
         private int id;
         private String name;
         private String gender;
         private long phone;
 
-        public Spartan(){
+        public Spartan() {
 
         }
 
